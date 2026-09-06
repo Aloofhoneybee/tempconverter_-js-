@@ -6,17 +6,27 @@ on:
       - master
 
 jobs:
-   deploy:
+   check-file:
     runs-on: ubuntu-latest
 
     steps:
      - name: Checkout code
        uses: actions/checkout@v4
 
-     - name: Say hello
-       run: echo "Hello"
-        
-     - name: deploy
-       run: echo "Deploying"
+     - name: does index exist
+       run: test -f index.html 
 
+     - name: does style exist
+       run: test -f style.css 
+
+     - name: install vercel cli
+       run: pnpm i -g vercel
+
+     - name: sign-in
+       run: vercel --token ${{secrets.VERCEL_TEMPCONVERTER}} --yes
+
+
+
+   
+   
     
