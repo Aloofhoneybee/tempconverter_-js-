@@ -22,6 +22,7 @@ jobs:
      - name: install vercel cli
        run: npm i -g vercel
 
+       
      - name: Test Vercel authentication
        run: vercel whoami --token ${{ secrets.VERCEL_TEMPCONVERTER }}
 
