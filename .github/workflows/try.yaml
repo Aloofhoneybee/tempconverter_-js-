@@ -20,10 +20,11 @@ jobs:
        run: test -f style.css 
 
      - name: install vercel cli
-       run: pnpm i -g vercel
+       run: npm i -g vercel
 
-     - name: sign-in
+     - name: Deploy
        run: vercel --token ${{secrets.VERCEL_TEMPCONVERTER}} --yes
+
 
 
 
